@@ -29,7 +29,7 @@ def transform_value(request: request.PayloadRequest):
     return ", ".join(request.list_1 + request.list_2).upper()
 
 
-def get_payload(session: Session, payload_id: int, use_cache: bool = True):
+def get_payload(session: Session, payload_id: str, use_cache: bool = True):
     if use_cache:
         cached_payload = redis_client.get(f"payload_{payload_id}")
         if cached_payload:

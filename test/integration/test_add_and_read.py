@@ -19,7 +19,6 @@ def test_add_and_read():
     )
 
     content = response.json()
-    assert content["data"]["value"] == transformed_value
     assert content["status"] == 201
     assert content["message"] == "Payload added successfully"
 

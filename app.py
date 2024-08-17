@@ -15,7 +15,9 @@ def create_payload(request: request.PayloadRequest):
     db_session = dependencies.SessionLocal()
     payload = service.add_payload(db_session, request)
     resp = response.AddPayloadResponse(
-        data=payload,
+        data={
+            "id": payload["id"],
+        },
         status=201,
         message="Payload added successfully",
     )
