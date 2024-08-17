@@ -1,0 +1,6 @@
+__pycache__/
+.vscode
+.idea
+.devcontainer
+.env
+.DS_Store
