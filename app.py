@@ -5,7 +5,7 @@ from database import dependencies, orm
 from service import service
 from domain import request, response
 
-app = FastAPI()
+app = FastAPI(title="Cache Service", docs_url="/v1/docs")
 
 orm.Base.metadata.create_all(bind=dependencies.engine)
 

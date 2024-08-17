@@ -12,24 +12,22 @@
 - Python with FastAPI framework
 - PostgreSQL database with Alembic migration for database management
 - Docker for containerization with Docker Compose for multiple containers
+- Redis for in-memory caching system to speeding up reading performance
 
 
 ## How to run
 
-1. Set up environment variables:
-   - Create a `.env` file.
-   - Add the necessary environment variables details following example of `.env.sample` file.
+1.  Start the service by running below command:
+    ```
+    sudo docker compose up
+    ```
 
-2. (Optional) For testing run following command:
-   ```
-   poetry run pytest test
-   ```
-   Notes: for integration testing, adjust `LOCALHOST_DATABASE_URL` variable in `test/integration/test_service.py` with localhost database configuration
 
-3. Start the service by running below command:
-   ```
-   sudo docker compose up
-   ```
+## How to test
+
+1. When the service starts, the tests are already run before application deployment to ensure everything works correctly, so manual pytest execution is not necessary.
+2. For convenience, if manual testing feels needed, start the service first, then access http://0.0.0.0:8000/v1/docs for Swagger API testing.
+
 
 ## Database Schema
 

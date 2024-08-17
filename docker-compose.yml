@@ -6,6 +6,10 @@ services:
       dockerfile: ./Dockerfile
     environment:
       DATABASE_URL: ${DATABASE_URL}
+    depends_on:
+      db:
+        condition: service_started
+        restart: true
     ports:
       - "8000:8000"
 

@@ -17,4 +17,4 @@ RUN poetry install
 ENV APP_MODULE=app:app
 ENV PORT=8000
 
-CMD poetry run uvicorn $APP_MODULE --host 0.0.0.0 --port $PORT
+CMD poetry run pytest test && poetry run uvicorn $APP_MODULE --host 0.0.0.0 --port $PORT

@@ -41,5 +41,9 @@ def get_payload(session: Session, payload_id: int, use_cache: bool = True):
     session.close()
 
     if payload:
-        redis_client.setex(f"payload_{payload_id}", 600, json.dumps(payload.to_dict()))
+        redis_client.setex(
+            f"payload_{payload_id}",
+            int(os.getenv("REDIS_EXPIRE_TIME", 600)),
+            json.dumps(payload.to_dict()),
+        )
         return payload.to_dict()
